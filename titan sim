@@ -1,0 +1,133 @@
+local CommanderTwixIsCoolv2 = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+local ImageLabel = Instance.new("ImageLabel")
+local MainFrame = Instance.new("Frame")
+local BringPlayersButton = Instance.new("TextButton")
+local SpamPunchButton = Instance.new("TextButton")
+local BringOrbsButton = Instance.new("TextButton")
+local CloseButton = Instance.new("TextButton")
+local GlossEffect = Instance.new("ImageLabel")
+
+CommanderTwixIsCoolv2.Name = "CommanderTwixIsCoolv2"
+CommanderTwixIsCoolv2.Parent = game.Players.LocalPlayer.PlayerGui
+
+TextLabel.Parent = CommanderTwixIsCoolv2
+TextLabel.Active = true
+TextLabel.BackgroundColor3 = Color3.new(0, 1, 1)
+TextLabel.BackgroundTransparency = 0.5
+TextLabel.BorderSizePixel = 0
+TextLabel.Draggable = true
+TextLabel.Position = UDim2.new(0.5, -150, 0.5, -50)
+TextLabel.Size = UDim2.new(0, 280, 0, 20)
+TextLabel.Font = Enum.Font.Arial
+TextLabel.FontSize = Enum.FontSize.Size18
+TextLabel.Text = "Titan Simulator GUI by meref206"
+TextLabel.TextColor3 = Color3.new(1, 1, 1)
+TextLabel.TextSize = 18
+
+ImageLabel.Parent = TextLabel
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.Size = UDim2.new(1, 0, 0.5, 0)
+ImageLabel.ZIndex = 2
+ImageLabel.Image = "rbxasset://textures/BWGradient.png"
+ImageLabel.ImageTransparency = 0.5
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = TextLabel
+MainFrame.BackgroundColor3 = Color3.new(0, 0, 0)
+MainFrame.BackgroundTransparency = 0.30000001192093
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0, 0, 0, 20)
+MainFrame.Size = UDim2.new(0, 300, 0, 150)
+
+BringPlayersButton.Name = "BringPlayersButton"
+BringPlayersButton.Parent = MainFrame
+BringPlayersButton.BackgroundColor3 = Color3.new(0.27451, 0.27451, 0.27451)
+BringPlayersButton.BackgroundTransparency = 0.60000002384186
+BringPlayersButton.Size = UDim2.new(1, 0, 0.330000013, 0)
+BringPlayersButton.Font = Enum.Font.Arial
+BringPlayersButton.FontSize = Enum.FontSize.Size14
+BringPlayersButton.Text = "Bring bodies to you (kill for Power)"
+BringPlayersButton.TextColor3 = Color3.new(1, 1, 1)
+BringPlayersButton.TextSize = 14
+
+SpamPunchButton.Name = "SpamPunchButton"
+SpamPunchButton.Parent = MainFrame
+SpamPunchButton.BackgroundColor3 = Color3.new(0.27451, 0.27451, 0.27451)
+SpamPunchButton.BackgroundTransparency = 0.60000002384186
+SpamPunchButton.Position = UDim2.new(0, 0, 0.330000013, 0)
+SpamPunchButton.Size = UDim2.new(1, 0, 0.330000013, 0)
+SpamPunchButton.Font = Enum.Font.Arial
+SpamPunchButton.FontSize = Enum.FontSize.Size14
+SpamPunchButton.Text = "Punch  (by meref206)"
+SpamPunchButton.TextColor3 = Color3.new(1, 1, 1)
+SpamPunchButton.TextSize = 14
+
+BringOrbsButton.Name = "BringOrbsButton"
+BringOrbsButton.Parent = MainFrame
+BringOrbsButton.BackgroundColor3 = Color3.new(0.27451, 0.27451, 0.27451)
+BringOrbsButton.BackgroundTransparency = 0.60000002384186
+BringOrbsButton.Position = UDim2.new(0, 0, 0.660000026, 0)
+BringOrbsButton.Size = UDim2.new(1, 0, 0.330000013, 0)
+BringOrbsButton.Font = Enum.Font.Arial
+BringOrbsButton.FontSize = Enum.FontSize.Size14
+BringOrbsButton.Text = "Bring Orbs +5 Punch (by meref206)"
+BringOrbsButton.TextColor3 = Color3.new(1, 1, 1)
+BringOrbsButton.TextSize = 14
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = TextLabel
+CloseButton.BackgroundColor3 = Color3.new(1, 0, 0)
+CloseButton.BackgroundTransparency = 0.5
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(0, 280, 0, 0)
+CloseButton.Size = UDim2.new(0, 20, 0, 20)
+CloseButton.Font = Enum.Font.ArialBold
+CloseButton.FontSize = Enum.FontSize.Size18
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.new(1, 1, 1)
+CloseButton.TextSize = 18
+
+GlossEffect.Name = "GlossEffect"
+GlossEffect.Parent = CloseButton
+GlossEffect.BackgroundTransparency = 1
+GlossEffect.Size = UDim2.new(1, 0, 0.5, 0)
+GlossEffect.ZIndex = 2
+GlossEffect.Image = "rbxasset://textures/BWGradient.png"
+GlossEffect.ImageTransparency = 0.5
+
+CloseButton.MouseButton1Down:connect(function()
+LevisTitanSimulatorGUiv2:remove()
+end)
+SpamPunchButton.MouseButton1Down:connect(function()
+while wait() do
+local Punch = game.Players.LocalPlayer.Backpack.Punch
+Punch.Parent = game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Punch:Activate()
+wait(0.4)
+game.Players.LocalPlayer.Character.Punch:Activate()
+local PunchTwo = game.Players.LocalPlayer.Character.Punch
+PunchTwo.Parent = game.Players.LocalPlayer.Backpack
+end
+end)
+BringPlayersButton.MouseButton1Down:connect(function()
+local model = game.Players
+local children = model:GetChildren()
+for i =1, #children do
+if children[i] ~= nil then
+children[i].Character.UpperTorso.Anchored = true
+children[i].Character.UpperTorso.CFrame =  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.UpperTorso.Anchored = false
+game.Players.LocalPlayer.Character.UpperTorso.CFrame = children[i].Character.UpperTorso.CFrame
+  end
+end
+end)
+
+BringOrbsButton.MouseButton1Down:connect(function()
+for i,v in pairs(game.Workspace:GetChildren()) do
+if v.Name == "Drop" then
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+else
+end
+end
+end)
